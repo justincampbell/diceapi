@@ -6,4 +6,4 @@
   (fn []
     (if (< n 1)
       0
-      (+ (rand-int (- n 1)) 1))))
+      (+ (rand-int n) 1))))

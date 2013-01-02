@@ -16,8 +16,10 @@
   (it "which returns 1 when given 1"
     (should= 1 ((die 1))))
 
-  (it "which rolls to the given maxiumum"
-    (should= 5 (reduce max (map #(%) (repeat 1000 (die 6))))))
+  (it "which rolls between 1 and the given maxiumum"
+    (let [rolls (map #(%) (repeat 1000 (die 6)))]
+      (should= 1 (reduce min rolls))
+      (should= 6 (reduce max rolls))))
 
 )
 
