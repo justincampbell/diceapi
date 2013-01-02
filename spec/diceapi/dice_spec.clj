@@ -2,6 +2,17 @@
   (:require [speclj.core :refer :all]
             [diceapi.dice :refer :all]))
 
+(describe "dice"
+
+  (it "returns a single given die"
+    (should= (map #(%) [(die 1)]) (map #(%) (dice 1))))
+
+  (it "returns multiple die"
+    (should= (map #(%) [(die 1) (die 1)]) (map #(%) (dice 1 2))))
+
+)
+
+
 (describe "die"
 
   (it "returns a function"
@@ -24,6 +35,16 @@
         (should= 6 (reduce max rolls))))
 
   )
+
+)
+
+(describe "roll"
+
+  (it "rolls d1"
+    (should= [1] (roll 1)))
+
+  (it "rolls 3d1"
+    (should= [1 1 1] (roll 1 3)))
 
 )
 

@@ -2,8 +2,18 @@
 
 (defn die
   "Returns a function of a die that rolls to its given maxiumum"
-  [n]
+  [sides]
   (fn []
-    (if (< n 1)
+    (if (< sides 1)
       0
-      (+ (rand-int n) 1))))
+      (+ (rand-int sides) 1))))
+
+(defn dice
+  "Returns a sequence of dice"
+  [sides & n]
+  (repeat (or (first n) 1) (die sides)))
+
+(defn roll
+  "Rolls [sides] dice [n] times"
+  [sides & n]
+  (map #(%) (dice sides (or (first n) 1))))
