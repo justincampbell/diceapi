@@ -48,4 +48,14 @@
 
 )
 
+(describe "roll-string"
+
+  (it "rolls d1"
+    (should= [1] (roll-string "d1")))
+
+  (it "rolls 3d1"
+    (should= [1 1 1] (roll-string "3d1")))
+
+)
+
 (run-specs)
